@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommend Movies</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='recommendpage_style.css')}}"
+</head>
+<body>
+    <form action='/recommendMovies' method="POST">
+        <label for="search">
+            <p>Enter Movie Name</p>
+            <input type="search" name="movie_name" placeholder="eg. URI - The Surgical Strike">
+        </label>
+        <input type="submit" value="Search">
+        <a href='/'>Back to Home Page!!!</a>
+    </form>
+
+    <div class="contents">
+        {% if title|length == 0%}
+            <h1>{{msg}}</h1>
+        {% else %}
+            <div class="recommend-searched-movie">
+                <h2>SEARCHED MOVIE</h2><br>
+                <img src="{{image_url[0]}}">
+                <h4>"{{title[0]}}"</h4>
+                <p>{{summary[0]}}</p>
+                <p><b>Casts </b> : {% for j in actors[i] %}{{j}}, {% endfor %}</p>
+                <a href="{{wiki_link[0]}}">Know More!!!</a>
+            </div>
+            <div class="recommend-related-movie">
+                <br><br>
+                <h2>PEOPLE ALSO SEARCH FOR</h2><br>
+                {% for i in range(1,(title|length))%}
+                    <img src="{{image_url[i]}}">
+                    <h4>"{{title[i]}}"</h4>
+                    <p>{{summary[i]}}</p>
+                    <p><b>Casts </b> : {% for j in actors[i] %}{{j}}, {% endfor %}</p>
+                    <a href="{{wiki_link[i]}}">Know More!!!</a>
+                    <hr>
+            {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

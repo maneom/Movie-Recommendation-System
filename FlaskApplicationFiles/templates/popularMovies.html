@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='popular_style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+</head>
+<body>
+
+    <h1>TOP RATED MOVIES FROM 1950 - 2019 </h1>
+    <h5>(Source - Internet Movie Database)</h5>
+    <i class="fa-brands fa-imdb fa-4x"></i>
+    <div class="contents">
+        {% for i in range(title|length)%}
+            <img src="{{image_url[i]}}">
+            <h4>"{{title[i]}}"</h4>
+            <p><b>Ratings</b> : "{{rating[i]}}"</p>
+            <p><b>Votes</b>   : "{{votes[i]}}"</p>
+            <a href="{{wiki_link[i]}}">Know More!!!</a>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

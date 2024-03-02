@@ -1,0 +1,18 @@
+.genres-contents{
+    background-color: burlywood;
+}
+.genres-info{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+.genres-movies{
+    border: black solid 2px;
+    height: 400px;
+    width: 30%;
+}
+.genres-movies img{
+   height: 200px;
+}
+

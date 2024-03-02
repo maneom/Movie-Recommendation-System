@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel='stylesheet' href="{{url_for('static' , filename='homepage_style.css')}}"> 
+</head>
+<body>
+    <div class="homepage-contents">
+        <div class="homepage-options">
+            <a href="/popularMovies" >Popular Movies</a>
+            <a href="/recommendMovies" >Search Movies</a>
+        </div>
+
+        <div class="homepage-genres">
+            {% for i in types_of_genres %}
+                <a href="/genres/{{i}}"><p>{{i}}</p></a>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

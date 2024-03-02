@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='genrespage_style.css')}}"
+</head>
+<body>
+    <div class="genres-contents">
+        <div class="genres-info">
+            {% for i in range(title|length-1,-1,-1) %}
+                <div class="genres-movies">
+                    <img src="{{image_url[i]}}">
+                    <h4>"{{title[i]}}"</h4>
+                    <p><b>Casts </b> : {% for j in actors[i] %}{{j}}, {% endfor %}</p>
+                    <p><b>Genres</b>  : {% for j in genres[i] %}{{j}}, {% endfor %}</p>
+                    <a href="{{wiki_link[i]}}">Know More!!!</a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>
+    
